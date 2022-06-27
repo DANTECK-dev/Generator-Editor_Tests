@@ -1,0 +1,93 @@
+﻿<Window x:Class="OrderWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrderWpf"
+        mc:Ignorable="d"
+        Title="Генератор тестов" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Icon.png">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBD9FDF"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FFBD9FDF"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFA777DC"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FFA777DC"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FF91DDEB"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF91DDEB"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF7EB9DB"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid OpacityMask="{x:Null}" Visibility="Visible">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="BackgroundImage.jpg"/>
+        </Grid.Background>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="315" Margin="343,119,0,0" Stroke="#00444444" VerticalAlignment="Top" Width="311"/>
+        <Button x:Name="Add_button" Content="Составить&#xA;     тест" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="410" Margin="640,70,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource ButtonStyle}" FontFamily="Monotype Corsiva" FontSize="24" Background="#FF91DDEB" Click="AddButton_Click" BorderBrush="#00000000" Foreground="#FF444444" ContentStringFormat=""/>
+        <Button x:Name="Guide_button" Content=" Справочная&#xA;информация" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="410" Margin="208,70,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource ButtonStyle}" FontFamily="Monotype Corsiva" FontSize="22" Background="#FF91DDEB" Click="GuideButton_Click" BorderBrush="#00000000" Foreground="#FF444444"/>
+        <Label x:Name="MainMenu_label" Content="Главное меню" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontFamily="Monotype Corsiva" FontSize="48" Background="{x:Null}" Foreground="White"/>
+
+        <Image x:Name="Cat_Image" MouseDown="Cat_Image_MouseDown" Margin="357,134,0,0" Source="Cat.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="280" Height="282" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Button x:Name="Exit_button" Content=" Выйти из&#xA;программы" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="61" Margin="208,419,0,0" VerticalAlignment="Top" Width="578" Style="{DynamicResource ButtonStyle}" FontSize="24" FontFamily="Monotype Corsiva" Background="#FF91DDEB" Click="ExitButton_Click" BorderBrush="#00000000" Foreground="#FF444444" RenderTransformOrigin="0.602,0.081"/>
+        <Button x:Name="Generate_button" Content="Сгенерировать&#xA;        тест" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="578" Style="{DynamicResource ButtonStyle}" FontSize="24" FontFamily="Monotype Corsiva" Click="GenerateButton_Click" Background="#FF91DDEB" Foreground="#FF444444" BorderBrush="#00000000" Margin="208,70,0,0"/>
+        <Image x:Name="Screamer" MouseDown="Screamer_Image_MouseDown" Margin="0,-80,0,-197" Width="1000" Source="NewCat.png" Visibility="Hidden"/>
+
+
+    </Grid>
+</Window>

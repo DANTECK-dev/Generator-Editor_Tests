@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderWpf", "OrderWpf\OrderWpf.csproj", "{281D5C2C-5DD0-445B-BEEE-241BCEE39480}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{96F6BDE7-77C3-4C9D-8528-9F22133A6C1F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GeneratorTestsSetup", "GeneratorTestsSetup\GeneratorTestsSetup.vdproj", "{AF235484-02A4-43D0-8800-DD0541146E8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{281D5C2C-5DD0-445B-BEEE-241BCEE39480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{281D5C2C-5DD0-445B-BEEE-241BCEE39480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{281D5C2C-5DD0-445B-BEEE-241BCEE39480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{281D5C2C-5DD0-445B-BEEE-241BCEE39480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF235484-02A4-43D0-8800-DD0541146E8D}.Debug|Any CPU.ActiveCfg = Debug
+		{AF235484-02A4-43D0-8800-DD0541146E8D}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F400DDC2-AE9A-4838-B4EE-6E3547933A50}
+	EndGlobalSection
+EndGlobal
