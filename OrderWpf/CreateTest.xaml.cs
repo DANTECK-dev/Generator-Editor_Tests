@@ -65,8 +65,9 @@ namespace OrderWpf
                     MessageBoxIcon.Error);
                 FileStream fileCreate = new FileStream(MainWindow.DicpilineDir, FileMode.Create, FileAccess.Write);
                 fileCreate.Close();
-                CreateTest window = new CreateTest(); this.Close();
+                CreateTest window = new CreateTest(); 
                 window.Show();
+                this.Close();
                 return;
             }
         }

@@ -190,8 +190,8 @@ namespace OrderWpf
                     }
                     File.AppendAllText(res, "\n");
                 }
+                MessageBox.Show("Тест и ключи к нему, под номером " + randomKey + ", успешно сгенерирован");
             }
-
         }
 
         private void Discipline_ComboBox_SelectionChange(object sender, SelectionChangedEventArgs e)
